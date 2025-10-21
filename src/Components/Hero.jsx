@@ -49,10 +49,8 @@ const Hero = () => {
                 backgroundImage: `url(${slide.image})`,
               }}
             >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-green-900/40"></div>
+              <div className="absolute inset-0 bg-green-900/45"></div>
 
-              {/* Text Content */}
               <div className="relative text-center text-white z-10 px-4">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
                   {slide.title}
