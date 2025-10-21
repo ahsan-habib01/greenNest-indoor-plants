@@ -1,0 +1,76 @@
+import React from 'react';
+import { Link } from 'react-router';
+import { FaFacebook,  FaInstagram,  FaPinterest } from 'react-icons/fa';
+
+const Footer = () => {
+  return (
+    <footer className="bg-green-100 text-green-900 mt-10">
+      <div className="w-11/12 mx-auto  py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
+        <div>
+          <h2 className="text-2xl font-bold text-green-700 mb-2">GreenNest</h2>
+          <p className="text-sm text-green-800">
+            Your trusted destination for indoor plants and care tips.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+          <ul className="space-y-1">
+            <li>
+              <Link to="/about" className="hover:text-green-600">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-green-600">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/privacy-policy" className="hover:text-green-600">
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+          <div className="flex justify-center md:justify-start gap-4">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-600"
+            >
+              <FaInstagram size={22} />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-600"
+            >
+              <FaFacebook size={22} />
+            </a>
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-600"
+            >
+              <FaPinterest size={22} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-green-300 text-center py-3 text-sm text-green-800">
+        © 2025 <span className="font-semibold">GreenNest</span>. All rights
+        reserved.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
