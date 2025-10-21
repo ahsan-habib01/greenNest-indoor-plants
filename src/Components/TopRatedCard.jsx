@@ -25,7 +25,7 @@ const TopRatedCard = ({ plant }) => {
 
   return (
     <div className="bg-green-50 shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src={image} alt={plantName} className="w-full h-120 object-cover" />
+      <img src={image} alt={plantName} className="w-full h-96 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-bold text-green-900">{plantName}</h2>
         <div className="flex items-center mt-1 mb-2">
