@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { setUser, googleSignIn } = use(AuthContext);
+  const { setUser, createUser, profileUpdate, googleSignIn } = use(AuthContext);
 
   const handleRegister = e => {
     e.preventDefault();
@@ -15,7 +15,17 @@ const Register = () => {
     const photoURL = e.target.photo?.value;
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log('Registering:', { displayName, photoURL, email, password });
+
+    createUser(email, password)
+      .then(() => {
+        profileUpdate(displayName, photoURL)
+          .then(() => {
+            toast.success('User registered successfully!');
+            e.target.reset();
+          })
+          .catch(err => toast.error(err.message));
+      })
+      .catch(err => toast.error(err.message));
   };
 
   const handleGoogleLogin = () => {
