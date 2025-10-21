@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-green-300 text-center py-3 text-sm text-green-800">
+      <div className="w-11/12 mx-auto border-t border-green-300 text-center py-3 text-sm text-green-800">
         © 2025 <span className="font-semibold">GreenNest</span>. All rights
         reserved.
       </div>

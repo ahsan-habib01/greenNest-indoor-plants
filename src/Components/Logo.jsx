@@ -2,6 +2,7 @@ import React from 'react';
 import { Leaf } from 'lucide-react';
 import { Link } from 'react-router';
 
+
 const Logo = () => {
   return (
     <Link to={'/'} className="flex items-center gap-2">

@@ -1,0 +1,98 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy plant that purifies indoor air and thrives in low light.",
+    "image": "https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Monstera Deliciosa",
+    "category": "Tropical",
+    "price": 35,
+    "rating": 4.9,
+    "availableStock": 7,
+    "careLevel": "Medium",
+    "description": "Popular Swiss cheese plant with large, fenestrated leaves that adds tropical flair to any space.",
+    "image": "https://plus.unsplash.com/premium_photo-1665408511551-525a24a75ac5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "Jungle Vibes Co"
+  },
+  {
+    "plantId": 3,
+    "plantName": "Pothos Golden",
+    "category": "Hanging Plant",
+    "price": 15,
+    "rating": 4.7,
+    "availableStock": 25,
+    "careLevel": "Easy",
+    "description": "Fast-growing trailing vine with heart-shaped golden-green leaves, perfect for beginners.",
+    "image": "https://images.unsplash.com/photo-1696457848618-876c47b30cfd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "GreenLeaf Nursery"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Peace Lily",
+    "category": "Air Purifier",
+    "price": 28,
+    "rating": 4.6,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Elegant plant with white blooms that removes toxins from the air and thrives in shade.",
+    "image": "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "Bloom & Beyond"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Fiddle Leaf Fig",
+    "category": "Statement Plant",
+    "price": 65,
+    "rating": 4.4,
+    "availableStock": 5,
+    "careLevel": "Hard",
+    "description": "Dramatic tree-like plant with large violin-shaped leaves, requires consistent care and bright light.",
+    "image": "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "Botanical Elite"
+  },
+  {
+    "plantId": 6,
+    "plantName": "ZZ Plant",
+    "category": "Low Maintenance",
+    "price": 22,
+    "rating": 4.9,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "Nearly indestructible plant with glossy dark green leaves, tolerates neglect and low light.",
+    "image": "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 7,
+    "plantName": "Spider Plant",
+    "category": "Hanging Plant",
+    "price": 12,
+    "rating": 4.5,
+    "availableStock": 30,
+    "careLevel": "Easy",
+    "description": "Classic striped foliage plant that produces baby plantlets, excellent for hanging baskets.",
+    "image": "https://images.unsplash.com/photo-1654973114441-66b2f856bcef?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688",
+    "providerName": "GreenLeaf Nursery"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Rubber Plant",
+    "category": "Statement Plant",
+    "price": 42,
+    "rating": 4.7,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Bold plant with thick, glossy burgundy leaves that grows into an impressive indoor tree.",
+    "image": "https://images.unsplash.com/photo-1669392597221-bbfd4b6e13ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    "providerName": "Jungle Vibes Co"
+  }
+]
