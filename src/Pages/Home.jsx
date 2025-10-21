@@ -3,6 +3,7 @@ import Hero from '../Components/Hero';
 import TopRated from '../Components/TopRated';
 import PlantCareTips from '../Components/StaticComponents/PlantCareTips';
 import OurExperts from '../Components/StaticComponents/OurExperts';
+import EcoDecorIdeas from '../Components/StaticComponents/EcoDecorIdeas';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <TopRated></TopRated>
       <PlantCareTips></PlantCareTips>
       <OurExperts></OurExperts>
+      <EcoDecorIdeas></EcoDecorIdeas>
     </div>
   );
 };
