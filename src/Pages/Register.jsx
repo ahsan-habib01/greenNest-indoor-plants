@@ -1,27 +1,43 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'react-router';
-import { Eye, EyeOff } from 'lucide-react'; 
+import { Eye, EyeOff } from 'lucide-react';
+import { AuthContext } from '../Contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [photo, setPhoto] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { setUser, googleSignIn } = use(AuthContext);
 
   const handleRegister = e => {
     e.preventDefault();
-    console.log('Registering:', { name, photo, email, password });
-    // Add your Firebase signup logic here
+    const displayName = e.target.name?.value;
+    const photoURL = e.target.photo?.value;
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+    console.log('Registering:', { displayName, photoURL, email, password });
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then(res => {
+        // console.log(res);
+        setUser(res.user);
+        toast.success('Signin successful');
+      })
+      .catch(e => {
+        // console.log(e);
+        toast.error(e.message);
+      });
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen bg-green-50">
+    <section className="flex items-center justify-center min-h-screen bg-green-50 py-16">
       <div className="w-11/12 max-w-md bg-white shadow-lg rounded-2xl p-8">
-        <h2 className="text-3xl font-bold text-green-800 text-center mb-6">
-          Create Your Account 
+        <h2 className="text-3xl font-bold text-green-800 text-center mb-2">
+          Create Your Account
         </h2>
-        <p className="text-center text-green-700 mb-6">
+        <p className="text-center text-sm text-green-700 mb-6">
           Join GreenNest and bring nature closer to your home.
         </p>
 
@@ -33,10 +49,9 @@ const Register = () => {
             </label>
             <input
               type="text"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              required
+              name="name"
               placeholder="Enter your name"
+              required
               className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
@@ -48,8 +63,7 @@ const Register = () => {
             </label>
             <input
               type="url"
-              value={photo}
-              onChange={e => setPhoto(e.target.value)}
+              name="photo"
               placeholder="Enter your photo URL"
               className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
@@ -62,10 +76,9 @@ const Register = () => {
             </label>
             <input
               type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
+              name="email"
               placeholder="Enter your email"
+              required
               className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
@@ -77,11 +90,10 @@ const Register = () => {
             </label>
             <div className="relative">
               <input
-                type={showPassword ? 'text' : 'password'} 
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
+                type={showPassword ? 'text' : 'password'}
+                name="password"
                 placeholder="Enter your password"
+                required
                 className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10"
               />
               <button
@@ -90,7 +102,6 @@ const Register = () => {
                 className="absolute right-3 top-2.5 text-green-700 hover:text-green-900"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}{' '}
-          
               </button>
             </div>
           </div>
@@ -103,6 +114,26 @@ const Register = () => {
             Register
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="flex items-center justify-center my-1">
+          <div className="w-1/4 h-px bg-green-300"></div>
+          <span className="mx-3 text-green-700 font-medium">or</span>
+          <div className="w-1/4 h-px bg-green-300"></div>
+        </div>
+
+        {/* Google Login */}
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full flex items-center justify-center gap-3 border border-green-400 text-green-700 font-semibold py-2 rounded-lg hover:bg-green-100 transition"
+        >
+          <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google"
+            className="w-5 h-5"
+          />
+          Continue with Google
+        </button>
 
         <p className="text-center text-green-700 mt-6">
           Already have an account?{' '}
