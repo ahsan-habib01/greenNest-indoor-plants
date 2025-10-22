@@ -6,12 +6,14 @@ import MyProfile from '../Pages/MyProfile';
 import Loading from '../Components/Loading';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
+import ErrorPage from '../Pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayout,
     hydrateFallbackElement: <Loading></Loading>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -26,11 +28,11 @@ const router = createBrowserRouter([
         Component: MyProfile
       },
       {
-        path: '/login',
+        path: '/auth/login',
         Component: Login,
       },
       {
-        path: '/register',
+        path: '/auth/register',
         Component: Register,
       },
     ]

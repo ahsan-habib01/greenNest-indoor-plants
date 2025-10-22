@@ -1,20 +1,35 @@
-import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import React, { use, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { Eye, EyeOff } from 'lucide-react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const emailRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate()
 
-  const { setUser, googleSignIn } = use(AuthContext);
+  const { setUser, signIn, googleSignIn, forgetPassword } = use(AuthContext);
 
   const handleLogin = e => {
     e.preventDefault();
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+
     console.log('Logging in with:', email, password);
-    //
+
+    signIn(email, password)
+      .then(res => {
+        const user = res.user;
+        setUser(user);
+        // toast.success('Signin successful');
+        navigate(`${location.state ? location.state : '/'}`);
+      })
+      .catch(e => {
+        // console.log(e);
+        toast.error(e.message);
+      });
   };
 
   const handleGoogleLogin = () => {
@@ -26,6 +41,18 @@ const Login = () => {
       })
       .catch(e => {
         // console.log(e);
+        toast.error(e.message);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    const email = emailRef.current.value;
+    // console.log(email);
+    forgetPassword(email)
+      .then(() => {
+        toast.success('Password reset email sent! Check your inbox.');
+      })
+      .catch(e => {
         toast.error(e.message);
       });
   };
@@ -48,10 +75,10 @@ const Login = () => {
             </label>
             <input
               type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
+              name="email"
               placeholder="Enter your email"
+              ref={emailRef}
+              required
               className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
@@ -64,10 +91,9 @@ const Login = () => {
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
+                name="password"
                 placeholder="Enter your password"
+                required
                 className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10"
               />
               <button
@@ -80,17 +106,12 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Forget Password */}
-          <div className="text-right">
-            <Link
-              to="/reset-password"
-              className="text-green-600 hover:text-green-800 text-sm font-medium"
-            >
+          <button type="button" onClick={handleForgetPassword}>
+            <a className="text-green-600 hover:text-green-800 text-sm font-medium text-right">
               Forgot Password?
-            </Link>
-          </div>
+            </a>
+          </button>
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
@@ -99,14 +120,12 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center justify-center my-1">
           <div className="w-1/4 h-px bg-green-300"></div>
           <span className="mx-3 text-green-700 font-medium">or</span>
           <div className="w-1/4 h-px bg-green-300"></div>
         </div>
 
-        {/* Google Login */}
         <button
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-3 border border-green-400 text-green-700 font-semibold py-2 rounded-lg hover:bg-green-100 transition"
@@ -122,7 +141,7 @@ const Login = () => {
         <p className="text-center text-green-700 mt-6">
           Don’t have an account?{' '}
           <Link
-            to="/register"
+            to="/auth/register"
             className="text-green-600 font-semibold hover:text-green-800"
           >
             Register

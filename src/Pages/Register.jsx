@@ -1,11 +1,12 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Eye, EyeOff } from 'lucide-react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const { setUser, createUser, profileUpdate, googleSignIn } = use(AuthContext);
 
@@ -20,8 +21,9 @@ const Register = () => {
       .then(() => {
         profileUpdate(displayName, photoURL)
           .then(() => {
-            toast.success('User registered successfully!');
+            // toast.success('User registered successfully!');
             e.target.reset();
+            navigate('/');
           })
           .catch(err => toast.error(err.message));
       })
@@ -148,7 +150,7 @@ const Register = () => {
         <p className="text-center text-green-700 mt-6">
           Already have an account?{' '}
           <Link
-            to="/login"
+            to="/auth/login"
             className="text-green-600 font-semibold hover:text-green-800"
           >
             Login
