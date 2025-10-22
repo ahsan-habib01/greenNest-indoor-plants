@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const { user, setUser, signOutUser } = use(AuthContext);
     const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   const handleSignout = () => {
     signOutUser()
@@ -37,7 +37,10 @@ const Navbar = () => {
               style={{ anchorName: '--anchor-1' }}
             >
               <img
-                src={user?.photoURL || 'https://via.placeholder.com/88'}
+                src={
+                  user?.photoURL ||
+                  'https://img.icons8.com/?size=160&id=114015&format=png'
+                }
                 className="h-11 w-11 border-3 border-green-400 rounded-full mx-auto"
                 alt=""
               />

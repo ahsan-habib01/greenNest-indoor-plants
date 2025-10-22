@@ -1,8 +1,9 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { Link } from 'react-router';
 
 const TopRatedCard = ({ plant }) => {
-  const { plantName, image, price, rating } = plant;
+  const {plantId, plantName, image, price, rating } = plant;
 
   // Helper to render stars
   const renderStars = () => {
@@ -35,9 +36,9 @@ const TopRatedCard = ({ plant }) => {
           </span>
         </div>
         <p className="text-green-800 font-medium mb-3">${price}</p>
-        <button className="w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition">
+        <Link to={`/plant/${plantId}`} className="btn w-full py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition">
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

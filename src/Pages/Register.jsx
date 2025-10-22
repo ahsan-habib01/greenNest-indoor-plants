@@ -6,9 +6,17 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
   const { setUser, createUser, profileUpdate, googleSignIn } = use(AuthContext);
+
+  const validatePassword = password => {
+    if (password.length < 6) return 'Must be at least 6 characters';
+    if (!/(?=.*[a-z])(?=.*[A-Z])/.test(password))
+      return 'Must include both uppercase and lowercase letters';
+    return '';
+  };
 
   const handleRegister = e => {
     e.preventDefault();
@@ -16,6 +24,13 @@ const Register = () => {
     const photoURL = e.target.photo?.value;
     const email = e.target.email?.value;
     const password = e.target.password?.value;
+
+    const error = validatePassword(password);
+    if (error) {
+      setPasswordError(error);
+      return;
+    }
+    setPasswordError('');
 
     createUser(email, password)
       .then(() => {
@@ -27,7 +42,7 @@ const Register = () => {
           })
           .catch(err => toast.error(err.message));
       })
-      .catch(err => toast.error(err.message));
+      .catch(error => setPasswordError(error));
   };
 
   const handleGoogleLogin = () => {
@@ -106,7 +121,9 @@ const Register = () => {
                 name="password"
                 placeholder="Enter your password"
                 required
-                className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10"
+                className={`w-full px-4 py-2 border ${
+                  passwordError ? 'border-red-500' : 'border-green-300'
+                } rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10`}
               />
               <button
                 type="button"
@@ -116,6 +133,9 @@ const Register = () => {
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}{' '}
               </button>
             </div>
+            {passwordError && (
+              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+            )}
           </div>
 
           {/* Register Button */}

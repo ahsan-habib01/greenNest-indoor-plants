@@ -7,6 +7,7 @@ import Loading from '../Components/Loading';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import ErrorPage from '../Pages/ErrorPage';
+import PlantDetails from '../Pages/PlantDetails';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         Component: MyProfile
+      },
+      {
+        path: '/plant/:id',
+        Component: PlantDetails,
       },
       {
         path: '/auth/login',
