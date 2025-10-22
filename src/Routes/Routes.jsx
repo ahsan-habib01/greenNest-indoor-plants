@@ -8,6 +8,7 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import ErrorPage from '../Pages/ErrorPage';
 import PlantDetails from '../Pages/PlantDetails';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,20 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        Component: MyProfile
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
+
       {
         path: '/plant/:id',
-        Component: PlantDetails,
+        element: (
+          <PrivateRoute>
+            <PlantDetails></PlantDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/auth/login',
@@ -40,7 +50,7 @@ const router = createBrowserRouter([
         path: '/auth/register',
         Component: Register,
       },
-    ]
-  }
+    ],
+  },
 ]);
 export default router;

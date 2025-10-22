@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { Eye, EyeOff } from 'lucide-react';
 import { AuthContext } from '../Contexts/AuthContext';
@@ -10,7 +10,8 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
-  const { setUser, createUser, profileUpdate, googleSignIn } = use(AuthContext);
+  const { setUser, createUser, profileUpdate, googleSignIn, setLoading } =
+    useContext(AuthContext);
 
   const validatePassword = password => {
     if (password.length < 6) return 'Must be at least 6 characters';
@@ -19,12 +20,10 @@ const Register = () => {
     return '';
   };
 
-  // live password validation
   const handlePasswordChange = e => {
     const value = e.target.value;
     setPassword(value);
-    const error = validatePassword(value);
-    setPasswordError(error);
+    setPasswordError(validatePassword(value));
   };
 
   const handleRegister = e => {
@@ -38,19 +37,28 @@ const Register = () => {
       setPasswordError(error);
       return;
     }
-    setPasswordError('');
 
     createUser(email, password)
-      .then(() => {
+      .then(res => {
+        const user = res.user;
         profileUpdate(displayName, photoURL)
           .then(() => {
+            setUser(user);
             e.target.reset();
             setPassword('');
+            // toast.success('Registration successful!');
+            setLoading(false);
             navigate('/');
           })
-          .catch(err => toast.error(err.message));
+          .catch(err => {
+            toast.error(err.message);
+            setLoading(false);
+          });
       })
-      .catch(error => toast.error(error.message));
+      .catch(err => {
+        toast.error(err.message);
+        setLoading(false);
+      });
   };
 
   const handleGoogleLogin = () => {
@@ -58,10 +66,9 @@ const Register = () => {
       .then(res => {
         setUser(res.user);
         toast.success('Signin successful');
+        navigate('/');
       })
-      .catch(e => {
-        toast.error(e.message);
-      });
+      .catch(e => toast.error(e.message));
   };
 
   return (
@@ -116,7 +123,7 @@ const Register = () => {
             />
           </div>
 
-          {/* Controlled Password */}
+          {/* Password */}
           <div>
             <label className="block text-green-800 font-medium mb-2">
               Password
@@ -150,7 +157,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Register Button */}
           <button
             type="submit"
             className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
@@ -159,14 +165,12 @@ const Register = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center justify-center my-1">
           <div className="w-1/4 h-px bg-green-300"></div>
           <span className="mx-3 text-green-700 font-medium">or</span>
           <div className="w-1/4 h-px bg-green-300"></div>
         </div>
 
-        {/* Google Login */}
         <button
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-3 border border-green-400 text-green-700 font-semibold py-2 rounded-lg hover:bg-green-100 transition"

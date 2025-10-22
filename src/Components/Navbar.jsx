@@ -4,19 +4,18 @@ import NavLinks from './NavLinks';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { HashLoader } from 'react-spinners';
 
 const Navbar = () => {
-
-  const { user, setUser, signOutUser } = use(AuthContext);
-    const navigate = useNavigate();
-  // console.log(user);
+  const { user, setUser, signOutUser, loading } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignout = () => {
     signOutUser()
       .then(() => {
         // toast.success('Signout successful');
         setUser(null);
-        navigate('/auth/login')
+        navigate('/auth/login');
       })
       .catch(e => {
         toast.error(e.message);
@@ -29,7 +28,9 @@ const Navbar = () => {
         <Logo></Logo>
         <NavLinks></NavLinks>
 
-        {user ? (
+        {loading ? (
+          <HashLoader color="green" size={45} />
+        ) : user ? (
           <div className="text-center space-y-3">
             <button
               className=""
@@ -65,17 +66,17 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <div className="flex gap-5">
+          <div className="flex justify-center items-center gap-5">
             <Link
-              to={'/auth/login'}
-              className=" px-5 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+              to="/auth/login"
+              className="w-25 text-center px-5 py-2 border-2 border-green-600 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 hover:border-green-700 transition"
             >
               Login
             </Link>
 
             <Link
-              to={'/auth/register'}
-              className=" px-5 py-2 border-2 border-green-600 text-green-700 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition"
+              to="/auth/register"
+              className="w-25 text-center px-5 py-2 border-2 border-green-600 text-green-700 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition"
             >
               Register
             </Link>

@@ -59,11 +59,11 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
       setLoading(false);
     });
-    return unsubscribe;
+    return unSubscribe;
   }, []);
 
   const authInfo = {
@@ -76,6 +76,7 @@ const AuthProvider = ({ children }) => {
     forgetPassword,
     signOutUser,
     loading,
+    setLoading,
   };
 
   return (
