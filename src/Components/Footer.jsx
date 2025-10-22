@@ -4,7 +4,7 @@ import { FaFacebook,  FaInstagram,  FaPinterest } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-green-100 text-green-900 mt-">
+    <footer className="bg-green-100 text-green-900">
       <div className="w-11/12 mx-auto  py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
         <div>
           <h2 className="text-2xl font-bold text-green-700 mb-2">GreenNest</h2>

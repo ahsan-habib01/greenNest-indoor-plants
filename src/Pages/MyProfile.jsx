@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { Camera, Mail, User, Edit3 } from 'lucide-react';
+import profileImg from '../assets/undraw_profile-details_6fky.svg'
 
 const MyProfile = () => {
   const { user, profileUpdate, setUser, setLoading } = use(AuthContext);
@@ -31,7 +32,9 @@ const MyProfile = () => {
 
   if (!user) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-green-50">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-green-50 space-y-2">
+        <title>GreenNest- Login to Your Profile</title>
+        <img src={profileImg} alt="" className='h-80' />
         <p className="text-lg text-green-700 mb-4">
           You are not signed in. Please login to view your profile.
         </p>
@@ -47,6 +50,7 @@ const MyProfile = () => {
 
   return (
     <section className="min-h-screen bg-green-50 flex justify-center items-center py-10">
+      <title>GreenNest- Your Profile</title>
       <div className="w-11/12 max-w-md bg-white shadow-md rounded-2xl p-8">
         <div className="flex flex-col items-center text-center">
           <div className="relative">
@@ -66,7 +70,7 @@ const MyProfile = () => {
           <h2 className="text-2xl font-bold text-green-800 mt-4">
             {user.displayName || 'Anonymous User'}
           </h2>
-          <p className="text-green-700 flex items-center gap-2 mt-1">
+          <p className="text-green-700 flex justify-center items-center gap-2 mt-1">
             <Mail size={16} /> {user.email}
           </p>
         </div>

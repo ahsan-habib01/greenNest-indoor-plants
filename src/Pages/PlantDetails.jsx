@@ -1,9 +1,9 @@
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
-import { Star } from 'lucide-react';
 import usePlants from '../Hooks/usePlants';
 import Loading from '../Components/Loading';
-import environmentImg from '../assets/undraw_gardening_3tyw.svg'
+import environmentImg from '../assets/undraw_gardening_3tyw.svg';
+import { FaStar } from 'react-icons/fa';
 
 const PlantDetails = () => {
   const { id } = useParams();
@@ -11,7 +11,6 @@ const PlantDetails = () => {
 
   if (loading) return <Loading />;
 
-  // Find by plantId (string-safe)
   const plant = plants.find(p => String(p.plantId) === String(id));
 
   if (!plant) {
@@ -41,36 +40,14 @@ const PlantDetails = () => {
     providerName,
   } = plant;
 
-  // Render 5 stars: rounded to nearest integer (filled yellow) and rest gray
-  const renderStars = ratingValue => {
-    const filled = Math.round(ratingValue); // rounds 4.8 -> 5
-    const total = 5;
-    const stars = [];
-    for (let i = 1; i <= total; i++) {
-      stars.push(
-        <Star
-          key={i}
-          size={18}
-          className={
-            i <= filled
-              ? 'text-yellow-400 inline-block'
-              : 'text-gray-300 inline-block'
-          }
-        />
-      );
-    }
-    return stars;
-  };
-
-
   const handleSubmit = e => {
     e.preventDefault();
     toast.success('Consultation booked successfully!');
-
   };
 
   return (
     <main className="bg-green-50 min-h-screen pb-16">
+      <title>{plantName}</title>
       {/* Top card */}
       <section className="w-11/12 mx-auto px-10 py-10">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -108,10 +85,20 @@ const PlantDetails = () => {
 
               <div className="mt-6 flex items-center gap-6 text-green-800">
                 <div className="flex items-center gap-2">
-                  <div className="flex">{renderStars(rating)}</div>
-                  <span className="ml-2 font-semibold text-green-700">
-                    {rating.toFixed(1)}
-                  </span>
+                  {/* Rating */}
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar
+                        key={i}
+                        className={
+                          i < Math.round(rating)
+                            ? 'text-yellow-500'
+                            : 'text-gray-300'
+                        }
+                      />
+                    ))}
+                    <span className="ml-1 font-medium">{rating}</span>
+                  </div>
                 </div>
 
                 <div>
@@ -152,7 +139,7 @@ const PlantDetails = () => {
 
       <section className="w-11/12 mx-auto px-10 mt-8">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2">
-          <div className="p-8 bg-green-200 flex flex-col justify-center">
+          <div className="p-8 bg-gradient-to-br from-green-200 via-green-300 to-green-300 flex flex-col justify-center">
             <img className="h-50 mb-2" src={environmentImg} alt="" />
             <h2 className="text-2xl md:text-3xl font-bold text-green-900">
               Book Consultation
@@ -162,18 +149,6 @@ const PlantDetails = () => {
               consultation with one of our Green Experts - care tips, placement,
               and fertilizing guidance tailored for your space.
             </p>
-
-            {/* <div className="mt-6 text-sm text-green-600">
-              <p>
-                <span className="font-semibold">Plant:</span> {plantName}
-              </p>
-              <p className="mt-2">
-                <span className="font-semibold">Price:</span> ${price}
-              </p>
-              <p className="mt-2">
-                <span className="font-semibold">Provider:</span> {providerName}
-              </p>
-            </div> */}
           </div>
 
           {/* Right: Form */}
@@ -186,7 +161,7 @@ const PlantDetails = () => {
                 <input
                   name="name"
                   type="text"
-                  // required
+                  required
                   placeholder="Your name"
                   className="w-full px-4 py-2 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
                 />
@@ -199,7 +174,7 @@ const PlantDetails = () => {
                 <input
                   name="email"
                   type="email"
-                  // required
+                  required
                   placeholder="Your email"
                   className="w-full px-4 py-2 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
                 />

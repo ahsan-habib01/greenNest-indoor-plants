@@ -8,6 +8,7 @@ import EcoDecorIdeas from '../Components/StaticComponents/EcoDecorIdeas';
 const Home = () => {
   return (
     <div className="">
+      <title>GreenNest - Home Page</title>
       <Hero></Hero>
       <TopRated></TopRated>
       <PlantCareTips></PlantCareTips>

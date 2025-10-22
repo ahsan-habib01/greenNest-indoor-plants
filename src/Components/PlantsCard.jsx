@@ -1,36 +1,31 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router';
+import { FaStar } from 'react-icons/fa';
 
 const PlantsCard = ({ plant }) => {
   const { plantId, plantName, image, price, rating } = plant;
 
-  // Render stars (all fully yellow)
-  const renderStars = () => {
-    const stars = [];
-    const fullStars = Math.round(rating); // round to nearest star
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Star key={i} className="text-yellow-400 inline-block" size={18} />
-      );
-    }
-
-    return stars;
-  };
-
   return (
     <div className="bg-green-50 shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-      <title>{plantName}</title>
+      <title>GreenNest - Explore All Plants</title>
       <img src={image} alt={plantName} className="w-full h-96 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-bold text-green-900">{plantName}</h2>
-        <div className="flex items-center mt-1 mb-2">
-          {renderStars()}
-          <span className="text-green-700 font-semibold ml-2">
-            {rating.toFixed(1)}
-          </span>
+
+        {/* Rating */}
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <FaStar
+              key={i}
+              className={
+                i < Math.round(rating) ? 'text-yellow-500' : 'text-gray-300'
+              }
+            />
+          ))}
+          <span className="ml-1 font-medium">{rating}</span>
         </div>
+        
         <p className="text-green-800 font-medium mb-3">${price}</p>
         <Link
           to={`/plant/${plantId}`}

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
+import ScrollToTop from '../Components/ScrollToTop';
 
 const RootLayout = () => {
   return (
@@ -11,6 +12,7 @@ const RootLayout = () => {
       </header>
       <main className="max-w-screen mx-auto w-full flex-1">
         <Outlet></Outlet>
+        <ScrollToTop></ScrollToTop>
       </main>
       <footer>
         <Footer></Footer>

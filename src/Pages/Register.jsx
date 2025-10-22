@@ -74,6 +74,7 @@ const Register = () => {
 
   return (
     <section className="flex items-center justify-center min-h-screen bg-green-50 py-16">
+      <title>Create Your Account - GreenNest</title>
       <div className="w-11/12 max-w-md bg-white shadow-lg rounded-2xl p-8">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-2">
           Create Your Account
