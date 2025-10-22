@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
@@ -18,12 +19,19 @@ const Register = () => {
     return '';
   };
 
+  // live password validation
+  const handlePasswordChange = e => {
+    const value = e.target.value;
+    setPassword(value);
+    const error = validatePassword(value);
+    setPasswordError(error);
+  };
+
   const handleRegister = e => {
     e.preventDefault();
     const displayName = e.target.name?.value;
     const photoURL = e.target.photo?.value;
     const email = e.target.email?.value;
-    const password = e.target.password?.value;
 
     const error = validatePassword(password);
     if (error) {
@@ -36,24 +44,22 @@ const Register = () => {
       .then(() => {
         profileUpdate(displayName, photoURL)
           .then(() => {
-            // toast.success('User registered successfully!');
             e.target.reset();
+            setPassword('');
             navigate('/');
           })
           .catch(err => toast.error(err.message));
       })
-      .catch(error => setPasswordError(error));
+      .catch(error => toast.error(error.message));
   };
 
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(res => {
-        // console.log(res);
         setUser(res.user);
         toast.success('Signin successful');
       })
       .catch(e => {
-        // console.log(e);
         toast.error(e.message);
       });
   };
@@ -110,7 +116,7 @@ const Register = () => {
             />
           </div>
 
-          {/* Password */}
+          {/* Controlled Password */}
           <div>
             <label className="block text-green-800 font-medium mb-2">
               Password
@@ -119,18 +125,24 @@ const Register = () => {
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
+                value={password}
+                onChange={handlePasswordChange}
                 placeholder="Enter your password"
                 required
                 className={`w-full px-4 py-2 border ${
-                  passwordError ? 'border-red-500' : 'border-green-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10`}
+                  passwordError
+                    ? 'border-red-500 focus:ring-red-500'
+                    : password
+                    ? 'border-green-500 focus:ring-green-500'
+                    : 'border-green-300 focus:ring-green-500'
+                } rounded-lg focus:outline-none focus:ring-2 pr-10 transition-all duration-300`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-2.5 text-green-700 hover:text-green-900"
               >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}{' '}
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             {passwordError && (

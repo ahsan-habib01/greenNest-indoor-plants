@@ -6,28 +6,48 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const emailRef = useRef();
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { setUser, signIn, googleSignIn, forgetPassword } = use(AuthContext);
+
+  // password validation
+  const validatePassword = password => {
+    if (password.length < 6) return 'Must be at least 6 characters';
+    if (!/(?=.*[a-z])(?=.*[A-Z])/.test(password))
+      return 'Must include both uppercase and lowercase letters';
+    return '';
+  };
+
+  // live password validation as user types
+  const handlePasswordChange = e => {
+    const value = e.target.value;
+    setPassword(value);
+    const error = validatePassword(value);
+    setPasswordError(error);
+  };
 
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email?.value;
-    const password = e.target.password?.value;
+    const error = validatePassword(password);
 
-    console.log('Logging in with:', email, password);
+    if (error) {
+      setPasswordError(error);
+      return;
+    }
+    setPasswordError('');
 
     signIn(email, password)
       .then(res => {
         const user = res.user;
         setUser(user);
-        // toast.success('Signin successful');
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(e => {
-        // console.log(e);
         toast.error(e.message);
       });
   };
@@ -35,19 +55,16 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(res => {
-        // console.log(res);
         setUser(res.user);
         toast.success('Signin successful');
       })
       .catch(e => {
-        // console.log(e);
         toast.error(e.message);
       });
   };
 
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
-    // console.log(email);
     forgetPassword(email)
       .then(() => {
         toast.success('Password reset email sent! Check your inbox.');
@@ -83,7 +100,7 @@ const Login = () => {
             />
           </div>
 
-          {/* Password  */}
+          {/* Password (controlled input) */}
           <div>
             <label className="block text-green-800 font-medium mb-2">
               Password
@@ -92,26 +109,39 @@ const Login = () => {
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
+                value={password}
+                onChange={handlePasswordChange}
                 placeholder="Enter your password"
                 required
-                className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 pr-10"
+                className={`w-full px-4 py-2 border ${
+                  passwordError
+                    ? 'border-red-500 focus:ring-red-500'
+                    : password
+                    ? 'border-green-500 focus:ring-green-500'
+                    : 'border-green-300 focus:ring-green-500'
+                } rounded-lg focus:outline-none focus:ring-2 pr-10 transition-all duration-300`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-2.5 text-green-700 hover:text-green-900"
               >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}{' '}
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
+            {passwordError && (
+              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+            )}
           </div>
 
+          {/* Forget Password */}
           <button type="button" onClick={handleForgetPassword}>
-            <a className="text-green-600 hover:text-green-800 text-sm font-medium text-right">
+            <span className="text-green-600 hover:text-green-800 text-sm font-medium text-right block">
               Forgot Password?
-            </a>
+            </span>
           </button>
 
+          {/* Login Button */}
           <button
             type="submit"
             className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
@@ -120,12 +150,14 @@ const Login = () => {
           </button>
         </form>
 
+        {/* Divider */}
         <div className="flex items-center justify-center my-1">
           <div className="w-1/4 h-px bg-green-300"></div>
           <span className="mx-3 text-green-700 font-medium">or</span>
           <div className="w-1/4 h-px bg-green-300"></div>
         </div>
 
+        {/* Google Login */}
         <button
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-3 border border-green-400 text-green-700 font-semibold py-2 rounded-lg hover:bg-green-100 transition"
