@@ -64,7 +64,8 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(res => {
-        setUser(res.user);
+        const user = res.user;
+        setUser(user);
         toast.success('Signin successful');
         navigate('/');
       })

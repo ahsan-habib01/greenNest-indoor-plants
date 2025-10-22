@@ -12,7 +12,8 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { setUser, signIn, googleSignIn, forgetPassword } = use(AuthContext);
+  const { setUser, signIn, googleSignIn, forgetPassword, setLoading } =
+    use(AuthContext);
 
   // password validation
   const validatePassword = password => {
@@ -45,21 +46,26 @@ const Login = () => {
       .then(res => {
         const user = res.user;
         setUser(user);
+        setLoading(false);
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(e => {
         toast.error(e.message);
+        setLoading(false);
       });
   };
 
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(res => {
-        setUser(res.user);
-        toast.success('Signin successful');
+        const user = res.user;
+        setUser(user);
+        setLoading(false);
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(e => {
         toast.error(e.message);
+        setLoading(false);
       });
   };
 
