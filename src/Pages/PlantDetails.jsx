@@ -116,7 +116,7 @@ const PlantDetails = () => {
             {/* CTA area */}
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="inline-block bg-[#FFEAB5] text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                   {careLevel}
                 </span>
                 <span className="ml-3 text-sm text-green-600">
@@ -125,10 +125,10 @@ const PlantDetails = () => {
               </div>
 
               <div className="flex gap-3">
-                <button className="px-5 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                <button className="px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition cursor-pointer">
                   Add to Cart
                 </button>
-                <button className="px-5 py-2 border border-green-600 text-green-700 rounded-lg font-semibold hover:bg-green-100 transition">
+                <button className="px-5 py-2 border border-[#E3B23C] text-[#D49C2B] rounded-lg font-semibold hover:bg-[#FFEAB5] transition">
                   Save
                 </button>
               </div>

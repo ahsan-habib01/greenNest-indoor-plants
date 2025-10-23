@@ -33,17 +33,17 @@ const experts = [
 
 const OurExperts = () => {
   return (
-    <section className="py-16 bg-green-50">
+    <section className="py-16 bg-gradient-to-br from-green-100 via-green-200 to-green-300">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-green-900">
           Meet Our Green Experts
         </h2>
         <p className="text-green-700 mt-2">
-          Passionate about helping your plants thrive naturally.
+          Passionate about helping your plants thrive naturally
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 md:px-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 md:px-16 ">
         {experts.map(expert => (
           <div
             key={expert.id}

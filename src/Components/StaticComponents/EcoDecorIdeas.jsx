@@ -33,7 +33,7 @@ const EcoDecorIdeas = () => {
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-green-900">Eco Decor Ideas</h2>
         <p className="text-green-700 mt-2">
-          Stylish ways to bring nature’s calm into your everyday spaces.
+          Stylish ways to bring nature’s calm into your everyday spaces
         </p>
       </div>
 
@@ -41,7 +41,7 @@ const EcoDecorIdeas = () => {
         {ideas.map(idea => (
           <div
             key={idea.id}
-            className="bg-green-300 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
+            className="bg-[#FFEAB5] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
           >
             <img
               src={idea.image}

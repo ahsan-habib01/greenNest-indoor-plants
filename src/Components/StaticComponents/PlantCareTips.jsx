@@ -5,9 +5,12 @@ const PlantCareTips = () => {
   return (
     <section className="bg-green-50">
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-green-900 text-center mb-8">
-          Plant Care Tips
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-green-900">Plant Care Tips</h2>
+          <p className="text-green-700 mt-2">
+            Everything you need to grow and sustain vibrant plants
+          </p>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {plantTips.map(tip => (
             <div

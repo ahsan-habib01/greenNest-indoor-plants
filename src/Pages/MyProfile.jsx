@@ -34,13 +34,13 @@ const MyProfile = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-green-50 space-y-2">
         <title>GreenNest- Login to Your Profile</title>
-        <img src={profileImg} alt="" className='h-80' />
+        <img src={profileImg} alt="" className="h-80" />
         <p className="text-lg text-green-700 mb-4">
           You are not signed in. Please login to view your profile.
         </p>
         <a
           href="/auth/login"
-          className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+          className="px-6 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition cursor-pointer"
         >
           Go to Login
         </a>
@@ -50,7 +50,7 @@ const MyProfile = () => {
 
   return (
     <section className="min-h-screen bg-green-50 flex justify-center items-center py-10">
-      <title>GreenNest- Your Profile</title>
+      <title>My Profile - GreenNest</title>
       <div className="w-11/12 max-w-md bg-white shadow-md rounded-2xl p-8">
         <div className="flex flex-col items-center text-center">
           <div className="relative">
@@ -125,7 +125,7 @@ const MyProfile = () => {
           <div className="text-center">
             <button
               onClick={() => setEditing(true)}
-              className="mt-4 px-6 py-2 flex items-center justify-center gap-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition mx-auto"
+              className="mt-4 px-6 py-2 flex items-center justify-center gap-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition mx-auto cursor-pointer"
             >
               <Edit3 size={18} />
               Update Profile

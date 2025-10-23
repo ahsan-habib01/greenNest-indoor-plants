@@ -65,7 +65,7 @@ const Navbar = () => {
               <p className="text-sm text-gray-600">{user?.email}</p>
               <button
                 onClick={handleSignout}
-                className="px-5 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+                className="px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition"
               >
                 Sign Out
               </button>

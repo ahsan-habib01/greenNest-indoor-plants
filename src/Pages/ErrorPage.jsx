@@ -5,11 +5,8 @@ import ErrorImg from '../assets/undraw_page-not-found_6wni.svg'
 const ErrorPage = () => {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen bg-green-50 text-green-800 px-6">
-      <img
-        src={ErrorImg}
-        alt="404 Nature Illustration"
-        className="w-80 mb-6"
-      />
+      <title>Uh-oh! We Can’t Find That Page</title>
+      <img src={ErrorImg} alt="404 Nature Illustration" className="w-80 mb-6" />
 
       <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
       <p className="text-green-600 text-center mb-8 max-w-md">

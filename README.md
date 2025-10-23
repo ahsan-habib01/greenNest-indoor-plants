@@ -1,16 +1,58 @@
-# React + Vite
+# 🌱 GreenNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GreenNest** is an elegant single-page web application built for plant lovers who want to nurture and decorate their homes with healthy indoor plants.  
+It offers a soothing, modern experience where users can **explore plant guides**, **purchase indoor plants**, and **book expert consultations** — promoting a greener and healthier lifestyle.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌿 Project Theme
 
-## React Compiler
+> GreenNest is designed to connect people with nature through an accessible and modern digital platform.  
+> It helps users bring freshness into their homes, understand plant care easily, and find expert help — all in one place.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🪴 **Plant Collection:** Browse various indoor plants with detailed descriptions, care levels, and ratings.  
+- 💚 **Authentication:** Secure registration and login system with Firebase Authentication.  
+- 👤 **My Profile:** View and update user profile (name and photo) in real time.  
+- ⭐ **Plant Details Page:** Displays each plant’s full information — image, description, rating, stock, and price.  
+- 📅 **Consultation Booking:** Users can book plant care consultations easily via form submission.    
+- 🖼️ **Hero Slider:** Smooth, nature-inspired hero slider on the homepage using **Swiper.js** (or Framer Motion alternative) featuring promotional slides and care slogans.  
+- 🚀 **Responsive UI:** Fully optimized for mobile, tablet, and desktop devices.  
+- 🌈 **Modern Design:** Minimal greenish gradient design with Tailwind CSS and daisyUI.  
+- 🔝 **Scroll-to-Top Button:** Smooth scroll to top functionality when reaching the bottom of the page.  
+
+---
+
+## 🧠 Tech Stack
+
+| Category | Technology |
+|-----------|-------------|
+| **Frontend** | React.js (Vite) |
+| **Styling** | Tailwind CSS, daisyUI |
+| **Slider** | Swiper.js (Hero slider) |
+| **Icons** | Lucide React, React Icons |
+| **State Management** | React Context API |
+| **Routing** | React Router |
+| **Backend/Auth** | Firebase Authentication |
+| **Notifications** | React Toastify |
+| **UI Loader** | React Spinners |
+| **Hosting** | Firebase Hosting |
+
+---
+
+## 🧩 Main Components
+
+- `Navbar.jsx` → Responsive navigation with user authentication status  
+- `Hero.jsx` → Hero section using **Swiper.js** (slides with plant images and care slogans)   
+- `Footer.jsx` → Elegant footer with gradient and social links  
+- `AuthProvider.jsx` → Handles user authentication and context  
+- `MyProfile.jsx` → Displays user info and allows profile updates  
+- `PlantDetails.jsx` → Dynamic detailed view of each plant  
+- `ScrollToTop.jsx` → Floating button to return to top smoothly  
+- `Loading.jsx` → Beautiful centered spinner for async loading states  
+
+---
+
