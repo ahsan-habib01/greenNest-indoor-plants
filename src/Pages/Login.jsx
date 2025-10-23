@@ -73,7 +73,10 @@ const Login = () => {
     const email = emailRef.current.value;
     forgetPassword(email)
       .then(() => {
-        toast.success('Password reset email sent! Check your inbox.');
+        toast.success('Password reset email sent! Check your inbox.', {
+          position: 'top-right',
+          autoClose: 1500,
+        });
       })
       .catch(e => {
         toast.error(e.message);

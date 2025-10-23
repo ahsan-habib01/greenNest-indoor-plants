@@ -42,7 +42,10 @@ const PlantDetails = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    toast.success('Consultation booked successfully!');
+    toast.success('Consultation booked successfully!', {
+      position: 'top-right',
+      autoClose: 1500,
+    });
   };
 
   return (

@@ -20,7 +20,10 @@ const MyProfile = () => {
     profileUpdate(name, photo)
       .then(() => {
         setUser({ ...user, displayName: name, photoURL: photo });
-        toast.success('Profile updated successfully');
+        toast.success('Profile updated successfully', {
+          position: 'top-right',
+          autoClose: 1500,
+        });
         setEditing(false);
         setLoading(false)
       })

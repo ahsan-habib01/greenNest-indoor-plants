@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 const About = () => {
   return (
     <section className="min-h-[80vh] bg-gradient-to-br from-green-50 to-green-100 flex flex-col items-center justify-center text-center py-12">
+      <title>GreenNest - About Us</title>
       <div className="w-11/12 md:w-3/4 mx-auto">
         <h1 className="text-4xl font-bold text-green-700 mb-4">
           About GreenNest

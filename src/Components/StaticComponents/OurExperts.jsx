@@ -3,28 +3,28 @@ import React from 'react';
 const experts = [
   {
     id: 1,
-    name: 'Ariana Bloom',
+    name: 'Muntaha Esha',
     specialization: 'Indoor Plant Care Specialist',
     image:
       'https://images.unsplash.com/photo-1728027057050-7f106d4e9224?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074',
   },
   {
     id: 2,
-    name: 'Noah Green',
+    name: 'Abu Talha Sabit',
     specialization: 'Soil & Fertilizer Expert',
     image:
       'https://images.unsplash.com/photo-1587213484111-0deb7cab670a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1172',
   },
   {
     id: 3,
-    name: 'Sofia Leaf',
+    name: 'Tasnim Jannat',
     specialization: 'Air-Purifying Plant Consultant',
     image:
       'https://plus.unsplash.com/premium_photo-1681483723935-6b1a1415b943?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
   },
   {
     id: 4,
-    name: 'Liam Moss',
+    name: 'Sahdaf Hasan',
     specialization: 'Succulent & Cactus Specialist',
     image:
       'https://images.unsplash.com/photo-1619296331140-13c8711fb308?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',

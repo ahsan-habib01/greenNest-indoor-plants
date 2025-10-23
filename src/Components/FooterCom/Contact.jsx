@@ -5,6 +5,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 const Contact = () => {
   return (
     <section className="min-h-[80vh] bg-gradient-to-b from-green-50 to-green-100 flex flex-col items-center justify-center text-center py-12">
+      <title>GreenNest - Contact Us</title>
       <div className="w-11/12 md:w-3/4 mx-auto">
         <h1 className="text-4xl font-bold text-green-700 mb-4">Contact Us</h1>
         <p className="text-green-800 mb-8">
