@@ -19,7 +19,7 @@ It offers a soothing, modern experience where users can **explore plant guides**
 - 👤 **My Profile:** View and update user profile (name and photo) in real time.  
 - ⭐ **Plant Details Page:** Displays each plant’s full information — image, description, rating, stock, and price.  
 - 📅 **Consultation Booking:** Users can book plant care consultations easily via form submission.    
-- 🖼️ **Hero Slider:** Smooth, nature-inspired hero slider on the homepage using **Swiper.js** (or Framer Motion alternative) featuring promotional slides and care slogans.  
+- 🖼️ **Hero Slider:** Smooth, nature-inspired hero slider on the homepage using **Swiper.js**  featuring promotional slides and care slogans.  
 - 🚀 **Responsive UI:** Fully optimized for mobile, tablet, and desktop devices.  
 - 🌈 **Modern Design:** Minimal greenish gradient design with Tailwind CSS and daisyUI.  
 - 🔝 **Scroll-to-Top Button:** Smooth scroll to top functionality when reaching the bottom of the page.  

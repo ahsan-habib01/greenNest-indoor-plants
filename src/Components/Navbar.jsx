@@ -50,7 +50,7 @@ const Navbar = () => {
                   user?.photoURL ||
                   'https://img.icons8.com/?size=160&id=114015&format=png'
                 }
-                className="h-11 w-11 border-2 border-green-400 rounded-full object-cover"
+                className="h-11 w-11 border-2 border-green-400 rounded-full object-cover cursor-pointer"
                 alt="User"
               />
             </button>
@@ -65,7 +65,7 @@ const Navbar = () => {
               <p className="text-sm text-gray-600">{user?.email}</p>
               <button
                 onClick={handleSignout}
-                className="px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition"
+                className="px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition cursor-pointer"
               >
                 Sign Out
               </button>

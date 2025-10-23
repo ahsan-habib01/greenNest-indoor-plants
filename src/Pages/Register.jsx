@@ -66,10 +66,15 @@ const Register = () => {
       .then(res => {
         const user = res.user;
         setUser(user);
-        toast.success('Signin successful');
+        // toast.success('Signin successful');
+        setLoading(false);
         navigate('/');
       })
-      .catch(e => toast.error(e.message));
+      .catch(err => {
+        toast.error(err.message);
+        setLoading(false)
+      });
+    
   };
 
   return (

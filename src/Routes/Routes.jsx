@@ -9,6 +9,9 @@ import Register from '../Pages/Register';
 import ErrorPage from '../Pages/ErrorPage';
 import PlantDetails from '../Pages/PlantDetails';
 import PrivateRoute from './PrivateRoute';
+import About from '../Components/FooterCom/About';
+import Contact from '../Components/FooterCom/Contact';
+import PrivacyPolicy from '../Components/FooterCom/PrivacyPolicy';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +48,18 @@ const router = createBrowserRouter([
       {
         path: '/auth/register',
         Component: Register,
+      },
+      {
+        path: '/about',
+        Component: About,
+      },
+      {
+        path: '/contact',
+        Component: Contact,
+      },
+      {
+        path: '/privacy-policy',
+        Component: PrivacyPolicy,
       },
     ],
   },
