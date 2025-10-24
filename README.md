@@ -1,58 +1,64 @@
-# 🌱 GreenNest
+# 🌿 GreenNest
 
-**GreenNest** is an elegant single-page web application built for plant lovers who want to nurture and decorate their homes with healthy indoor plants.  
-It offers a soothing, modern experience where users can **explore plant guides**, **purchase indoor plants**, and **book expert consultations** — promoting a greener and healthier lifestyle.
-
----
-
-## 🌿 Project Theme
-
-> GreenNest is designed to connect people with nature through an accessible and modern digital platform.  
-> It helps users bring freshness into their homes, understand plant care easily, and find expert help — all in one place.
+**GreenNest** is an elegant single-page web application designed for plant lovers who want to nurture and decorate their homes with beautiful, healthy indoor plants.  
+The platform allows users to explore plants, view care tips, buy plants, and even book consultations with plant experts — creating a greener, healthier living environment.
 
 ---
 
-## ✨ Features
+## 🌱 Live Website
+🔗 [GreenNest Live Demo](https://green-nest-indoor-plants.web.app/)
 
-- 🪴 **Plant Collection:** Browse various indoor plants with detailed descriptions, care levels, and ratings.  
-- 💚 **Authentication:** Secure registration and login system with Firebase Authentication.  
-- 👤 **My Profile:** View and update user profile (name and photo) in real time.  
-- ⭐ **Plant Details Page:** Displays each plant’s full information — image, description, rating, stock, and price.  
-- 📅 **Consultation Booking:** Users can book plant care consultations easily via form submission.    
-- 🖼️ **Hero Slider:** Smooth, nature-inspired hero slider on the homepage using **Swiper.js**  featuring promotional slides and care slogans.  
-- 🚀 **Responsive UI:** Fully optimized for mobile, tablet, and desktop devices.  
-- 🌈 **Modern Design:** Minimal greenish gradient design with Tailwind CSS and daisyUI.  
-- 🔝 **Scroll-to-Top Button:** Smooth scroll to top functionality when reaching the bottom of the page.  
 
 ---
 
-## 🧠 Tech Stack
-
-| Category | Technology |
-|-----------|-------------|
-| **Frontend** | React.js (Vite) |
-| **Styling** | Tailwind CSS, daisyUI |
-| **Slider** | Swiper.js (Hero slider) |
-| **Icons** | Lucide React, React Icons |
-| **State Management** | React Context API |
-| **Routing** | React Router |
-| **Backend/Auth** | Firebase Authentication |
-| **Notifications** | React Toastify |
-| **UI Loader** | React Spinners |
-| **Hosting** | Firebase Hosting |
+## 🎯 Project Purpose
+To create an eco-friendly, modern web app that promotes the joy of indoor gardening — combining **aesthetic UI**, **smooth navigation**, and **real-time Firebase authentication**.  
+Users can register, sign in, explore detailed plant information, and enjoy a visually appealing browsing experience.
 
 ---
 
-## 🧩 Main Components
+## 🪴 Key Features
 
-- `Navbar.jsx` → Responsive navigation with user authentication status  
-- `Hero.jsx` → Hero section using **Swiper.js** (slides with plant images and care slogans)   
-- `Footer.jsx` → Elegant footer with gradient and social links  
-- `AuthProvider.jsx` → Handles user authentication and context  
-- `MyProfile.jsx` → Displays user info and allows profile updates  
-- `PlantDetails.jsx` → Dynamic detailed view of each plant  
-- `ScrollToTop.jsx` → Floating button to return to top smoothly  
-- `Loading.jsx` → Beautiful centered spinner for async loading states  
+### 🧭 Core Features
+- 🔐 **User Authentication** using Firebase (Register, Login, Logout)
+- 🌼 **Protected Routes** — users must log in before accessing private pages
+- 📦 **Dynamic Plant Details** — displays image, description, price, rating, and stock info
+- 📋 **Consultation Booking Form** — success toast notification on submit
+- 💾 **User Profile Page** — view and update display name and photo
+- 💬 **Interactive Toast Notifications** using `react-toastify`
+- 🌀 **Smooth Scroll-to-Top Button** when scrolling down
+- 🎨 **Modern Gradient UI** with consistent green theme
+- 💡 **Extra Section: “Plant of the Week”** with animation ring badge
+- 🧩 **Responsive Navbar & Footer** using Tailwind & DaisyUI
+- 📑 **Static Pages:** About, Contact, Privacy Policy (each with “Back to Home” button)
+- 🧭 **React Router Navigation** for seamless single-page transitions
 
 ---
 
+## 🛠️ Technologies Used
+
+### 💻 Frontend
+- **React.js** — component-based UI
+- **React Router** — SPA navigation
+- **Tailwind CSS** — utility-first responsive design
+- **DaisyUI** — enhanced prebuilt UI components
+- **React Icons / Lucide React** — modern icons
+- **Swiper.js** — hero section slider
+- **React Toastify** — alert and notification system
+
+### 🔥 Backend & Auth
+- **Firebase Authentication**
+- **Firebase Hosting**
+
+---
+
+## 🧩 NPM Packages Used
+```bash
+npm install react-router-dom
+npm install firebase
+npm install tailwindcss
+npm install daisyui
+npm install react-icons
+npm install lucide-react
+npm install swiper
+npm install react-toastify
