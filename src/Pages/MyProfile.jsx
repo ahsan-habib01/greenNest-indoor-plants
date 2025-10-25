@@ -44,7 +44,7 @@ const MyProfile = () => {
       <div className="flex flex-col items-center justify-center min-h-screen bg-green-50 space-y-2">
         <title>GreenNest- Login to Your Profile</title>
         <img src={profileImg} alt="" className="h-80" />
-        <p className="text-lg text-green-700 mb-4">
+        <p className=" text-green-700 mb-4">
           You are not signed in. Please login to view your profile.
         </p>
         <a
