@@ -2,10 +2,12 @@ import React, { use, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { Camera, Mail, User, Edit3 } from 'lucide-react';
-import profileImg from '../assets/undraw_profile-details_6fky.svg'
+import profileImg from '../assets/undraw_profile-details_6fky.svg';
+import Loading from './../Components/Loading';
 
 const MyProfile = () => {
-  const { user, profileUpdate, setUser, setLoading } = use(AuthContext);
+  const { user, profileUpdate, setUser, loading, setLoading } =
+    use(AuthContext);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(user?.displayName || '');
   const [photo, setPhoto] = useState(user?.photoURL || '');
@@ -25,13 +27,17 @@ const MyProfile = () => {
           autoClose: 1500,
         });
         setEditing(false);
-        setLoading(false)
+        setLoading(false);
       })
       .catch(err => {
         toast.error(err.message);
-        setLoading(false)
+        setLoading(false);
       });
   };
+
+    if (loading) {
+      return <Loading></Loading>
+    }
 
   if (!user) {
     return (
