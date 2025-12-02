@@ -32,7 +32,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="w-full h-[80vh] overflow-hidden">
+    <section className="w-full h-[68vh] overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -49,7 +49,7 @@ const Hero = () => {
                 backgroundImage: `url(${slide.image})`,
               }}
             >
-              <div className="absolute inset-0 bg-green-900/45"></div>
+              <div className="absolute inset-0 bg-green-900/46"></div>
 
               <div className="relative text-center text-white z-10 px-4">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">

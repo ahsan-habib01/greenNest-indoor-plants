@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const About = () => {
+const AboutUs = () => {
   return (
     <section className="min-h-[80vh] bg-gradient-to-br from-green-50 to-green-100 flex flex-col items-center justify-center text-center py-12">
       <title>GreenNest - About Us</title>
@@ -31,4 +31,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutUs;

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContext';
 
 const NavLinks = () => {
+  const { user } = use(AuthContext);
+
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Plants', path: '/plants' },
-    { name: 'My Profile', path: '/profile' },
+    { name: 'About Us', path: '/about-us' },
+    { name: 'Contact', path: '/contact' },
+    ...(user ? [{ name: 'My Profile', path: '/profile' }] : []),
   ];
 
   return (

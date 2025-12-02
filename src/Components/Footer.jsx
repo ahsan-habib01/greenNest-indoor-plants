@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { FaFacebook,  FaInstagram,  FaPinterest } from 'react-icons/fa';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-green-200 via-green-100 to-green-100 text-green-900">
       <div className="w-11/12 mx-auto  py-8 grid md:grid-cols-3 gap-6 text-center md:text-left">
         <div>
-          <h2 className="text-2xl font-bold text-green-700 mb-2">GreenNest</h2>
+          <Logo></Logo>
           <p className="text-sm text-green-800">
             Your trusted destination for indoor plants and care tips.
           </p>
@@ -17,7 +18,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <ul className="space-y-1">
             <li>
-              <Link to="/about" className="hover:text-green-600">
+              <Link to="/about-us" className="hover:text-green-600">
                 About
               </Link>
             </li>

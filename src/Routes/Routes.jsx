@@ -9,9 +9,9 @@ import Register from '../Pages/Register';
 import ErrorPage from '../Pages/ErrorPage';
 import PlantDetails from '../Pages/PlantDetails';
 import PrivateRoute from './PrivateRoute';
-import About from '../Components/FooterCom/About';
-import Contact from '../Components/FooterCom/Contact';
+import Contact from '../Pages/Contact';
 import PrivacyPolicy from '../Components/FooterCom/PrivacyPolicy';
+import AboutUs from './../Pages/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -32,14 +32,17 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <MyProfile></MyProfile>,
       },
-
+      {
+        path: '/about-us',
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: '/contact',
+        Component: Contact,
+      },
       {
         path: '/plant/:id',
-        element: (
-          <PrivateRoute>
-            <PlantDetails></PlantDetails>
-          </PrivateRoute>
-        ),
+        element: <PlantDetails></PlantDetails>,
       },
       {
         path: '/auth/login',
@@ -49,14 +52,7 @@ const router = createBrowserRouter([
         path: '/auth/register',
         Component: Register,
       },
-      {
-        path: '/about',
-        Component: About,
-      },
-      {
-        path: '/contact',
-        Component: Contact,
-      },
+
       {
         path: '/privacy-policy',
         Component: PrivacyPolicy,

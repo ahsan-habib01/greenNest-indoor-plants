@@ -9,7 +9,7 @@ const PlantsCard = ({ plant }) => {
   return (
     <div className="bg-green-50 shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
       <title>GreenNest - Explore All Plants</title>
-      <img src={image} alt={plantName} className="w-full h-96 object-cover" />
+      <img src={image} alt={plantName} className="w-full h-84 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-bold text-green-900">{plantName}</h2>
 
