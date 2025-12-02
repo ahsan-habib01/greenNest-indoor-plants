@@ -77,6 +77,15 @@ const PlantDetails = () => {
           <p className="text-sm text-green-600 mt-2">
             {category} • {careLevel}
           </p>
+          <p className="text-sm text-green-600 mt-2">
+            Origin • {origin}
+          </p>
+          <p className="text-sm text-green-600 mt-2">
+            Temperature Range • {temperatureRange}
+          </p>
+          <p className="text-sm text-green-600 mt-2">
+            Pot Size • {potSize}
+          </p>
 
           {/* Rating */}
           <div className="flex items-center gap-2 mt-4">
