@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute';
 import Contact from '../Pages/Contact';
 import PrivacyPolicy from '../Components/FooterCom/PrivacyPolicy';
 import AboutUs from './../Pages/AboutUs';
+import PlantCareGuide from '../Pages/PlantCareGuide';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/plants',
         Component: Plants,
+      },
+      {
+        path: '/plant-care',
+        element: <PlantCareGuide></PlantCareGuide>
       },
       {
         path: '/profile',

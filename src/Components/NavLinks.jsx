@@ -8,9 +8,9 @@ const NavLinks = () => {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Plants', path: '/plants' },
+    { name: 'Plant Care Guide', path: '/plant-care' },
     { name: 'About Us', path: '/about-us' },
-    { name: 'Contact', path: '/contact' },
-    ...(user ? [{ name: 'My Profile', path: '/profile' }] : []),
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (

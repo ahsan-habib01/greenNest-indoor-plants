@@ -50,10 +50,10 @@ const Navbar = () => {
           ) : user ? (
             <div className="hidden md:flex items-center gap-3">
               <div className="text-right">
-                <p className="font-semibold text-gray-800 leading-tight">
+                <p className="text-sm font-semibold text-gray-800 leading-tight">
                   {user?.displayName}
                 </p>
-                {/* <p className="text-xs text-gray-500">{user?.email}</p> */}
+                <p className="text-xs text-gray-500">{user?.email}</p>
               </div>
               <button
                 popoverTarget="popover-1"
@@ -68,7 +68,6 @@ const Navbar = () => {
                   className="h-11 w-11 border-2 border-green-400 rounded-full object-cover cursor-pointer transition-all duration-300 group-hover:border-green-600 group-hover:shadow-lg"
                   alt="User"
                 />
-                {/* <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white"></div> */}
               </button>
 
               <div
@@ -91,12 +90,21 @@ const Navbar = () => {
                   </h2>
                   <p className="text-sm text-gray-500">{user?.email}</p>
                 </div>
-                <button
-                  onClick={handleSignout}
-                  className="w-full px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition cursor-pointer"
-                >
-                  Sign Out
-                </button>
+                <div className='flex flex-col gap-1
+                '>
+                  <Link
+                    to="/profile"
+                    className="w-full px-5 py-2 text-center bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+                  >
+                    My Profile
+                  </Link>
+                  <button
+                    onClick={handleSignout}
+                    className="w-full px-5 py-2 bg-[#E3B23C] text-white rounded-lg font-semibold hover:bg-[#B97C16] transition cursor-pointer"
+                  >
+                    Sign Out
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
@@ -152,6 +160,13 @@ const Navbar = () => {
                   </p>
                 </div>
               </div>
+              <Link
+                to="/profile"
+                className="w-full px-6 py-2 text-center block bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+                onClick={() => setMenuOpen(false)}
+              >
+                My Profile
+              </Link>
               <button
                 onClick={handleSignout}
                 className="w-full px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
