@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-green-100 shadow-md sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-green-100 shadow-md">
       <div className="w-11/12 mx-auto py-4 flex justify-between items-center">
         <Logo />
 
@@ -91,7 +91,7 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-green-50 border-t border-green-200 py-4 space-y-4 text-center ">
+        <div className="md:hidden bg-green-50 border-t border-green-200 py-4 space-y-4 text-center">
           <NavLinks />
           {user ? (
             <div className="space-y-3">

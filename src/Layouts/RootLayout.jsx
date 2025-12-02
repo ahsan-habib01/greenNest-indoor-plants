@@ -7,17 +7,14 @@ import ScrollToTop from '../Components/ScrollToTop';
 const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="space-y-9">
-        <Navbar></Navbar>
-      </header>
+      <Navbar />
       <main className="max-w-screen mx-auto w-full flex-1">
-        <Outlet></Outlet>
-        <ScrollToTop></ScrollToTop>
+        <Outlet />
+        <ScrollToTop />
       </main>
       <footer>
-        <Footer></Footer>
+        <Footer />
       </footer>
-      
     </div>
   );
 };
