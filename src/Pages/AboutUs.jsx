@@ -66,7 +66,7 @@ const AboutUs = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-green-900 mb-6">
+          <h1 className="text-5xl md:text-5xl lg:text-5xl font-bold text-green-900 mb-6">
             Welcome to{' '}
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               GreenNest

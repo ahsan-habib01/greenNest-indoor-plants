@@ -245,7 +245,7 @@ const PlantCareGuide = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-green-900 mb-6">
+          <h1 className="text-5xl md:text-5xl font-bold text-green-900 mb-6">
             Plant Care{' '}
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               Guide
