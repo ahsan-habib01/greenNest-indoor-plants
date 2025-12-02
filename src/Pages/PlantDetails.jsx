@@ -64,7 +64,7 @@ const PlantDetails = () => {
           <img
             src={image}
             alt={plantName}
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-500"
+            className="w-full h-[520px] object-cover hover:scale-105 transition duration-500"
           />
         </div>
 

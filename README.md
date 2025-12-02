@@ -51,14 +51,3 @@ Users can register, sign in, explore detailed plant information, and enjoy a vis
 - **Firebase Hosting**
 
 ---
-
-## 🧩 NPM Packages Used
-```bash
-npm install react-router-dom
-npm install firebase
-npm install tailwindcss
-npm install daisyui
-npm install react-icons
-npm install lucide-react
-npm install swiper
-npm install react-toastify
